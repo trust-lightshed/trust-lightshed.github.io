@@ -9,12 +9,18 @@
       font-family: sans-serif;
       line-height: 1.6;
       max-width: 800px;
-      margin: 2rem auto;
+      margin: 0 auto;
       padding: 0 1rem;
     }
-    h1 {
+    .header-band {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .header-band h1 {
+      margin: 0;
       font-size: 2rem;
-      margin-bottom: 1rem;
     }
     h2 {
       margin-top: 2rem;
@@ -23,13 +29,29 @@
     p {
       margin-bottom: 1rem;
     }
-    ol {
+    ul, ol {
       margin-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      background-color: #f9f9f9;
+      border-left: 4px solid #ccc;
+    }
+    a {
+      color: #2c3e50;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>LightShed Bypasses Leading AI Art Protection Tools</h1>
+  <div class="header-band">
+    <h1>LightShed Bypasses Leading AI Art Protection Tools</h1>
+  </div>
 
   <p>Researchers from Technical University Darmstadt, University of Cambridge and University of Texas at San Antonio have introduced LightShed, a powerful new method capable of bypassing the state-of-the-art image protection tools designed to defend artists’ work against unauthorized AI training. Among the most prominent of these tools are Glaze and NightShade, which have collectively been downloaded over 8.8 million times [1], and have been featured in well-known news outlets such as the NY Times [2], World Economic Forum [3], and NPR [4]. They are popular among digital artists aiming to prevent AI models like Stable Diffusion from replicating their unique styles without consent.</p>
 
@@ -44,7 +66,7 @@
 
   <p>While these tools have become crucial to many creators, the newly developed LightShed method reveals that their protections may not be as robust as hoped. LightShed is able to detect, reverse-engineer, and remove these perturbations, effectively stripping away the protections and rendering the images usable again for generative AI model training.</p>
 
-  <h2>LightShed’s Three-Step Process</h2>
+  <h2>LightShed&rsquo;s Three-Step Process</h2>
   <ol>
     <li><strong>Detection:</strong> Identifies whether an image has been altered with known poisoning techniques.</li>
     <li><strong>Reverse Engineering:</strong> Learns the characteristics of the perturbations using publicly available poisoned examples.</li>
@@ -53,14 +75,17 @@
 
   <p>In experimental evaluations, LightShed successfully detected NightShade-protected images with 99.98% accuracy and effectively removed the embedded protections from those images.</p>
 
-  <p>Despite revealing critical vulnerabilities, the researchers behind LightShed stress that this is not merely an attack, but rather a call to action.</p>
   <blockquote>
-    “We see this as a chance to co-evolve defenses,” the authors state. “Our goal is to collaborate with other scientists in this field and support the artistic community in developing tools that can withstand advanced adversaries.”
+    “We see this as a chance to co-evolve defenses,” Prof. Ahmad-Reza Sadeghi states. “Our goal is to collaborate with other scientists in this field and support the artistic community in developing tools that can withstand advanced adversaries.”
   </blockquote>
 
-  <p>This research highlights the urgent need for stronger, more adaptive defenses in the evolving landscape of AI and digital creativity and offers a roadmap toward more resilient, artist-centered protection strategies.</p>
+  <p>This research highlights the urgent need for stronger, more adaptive defenses in the evolving landscape of AI and digital creativity and offers a roadmap toward more resilient, artist-centered protection strategies. The LightShed paper will be presented at the renowned security conference USENIX Security 2025 in Seattle. For the paper see <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/foerster">USENIX Security ’25 presentation</a>.</p>
 
-  <p>The LightShed paper will be presented at the renowned security conference USENIX Security 2025 in Seattle. For the paper see <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/foerster">USENIX Security ’25 presentation</a>.</p>
+  <h2>Contact</h2>
+  <p> Hanna Foerster, Department of Computer Science &amp; Technology, University of Cambridge, UK — <a href="mailto:hf390@cam.ac.uk">hf390@cam.ac.uk</a><br>
+  <p> Sasha Behrouzi, System Security Lab, Technical University of Darmstadt, Germany — <a href="mailto:sasha.behrouzi@tu-darmstadt.de">sasha.behrouzi@tu-darmstadt.de</a><br>
+  Prof. Murtuza Jadliwala, Department of Computer Science, University of Texas at San Antonio, US — <a href="mailto:murtuza.jadliwala@utsa.edu">murtuza.jadliwala@utsa.edu</a><br>
+  Prof. Ahmad-Reza Sadeghi, System Security Lab, Technical University of Darmstadt, Germany — <a href="mailto:ahmad.sadeghi@trust.informatik.tu-darmstadt.de">ahmad.sadeghi@trust.informatik.tu-darmstadt.de</a></p>
 
   <h2>References</h2>
   <ol>
@@ -70,11 +95,10 @@
     <li>Kashmir Hill, “This tool could protect artists from A.I.-generated art that steals their style”. New York Times, Feb 13 2023.</li>
     <li>Thomas Urbain, “Copyright questions loom as ChatGPT’s Ghibli-style images go viral,” The Japan Times, Mar 28 2025.</li>
     <li>Jacob Shamsian, “Studio Ghibli has few legal options to stop OpenAI from ripping off its style,” Business Insider, Mar 28 2025.</li>
-    <li>Saishruti Mutneja & Raghav Gurbaxani, “ChatGPT’s Ghibli-Style Images Are Testing Copyright Law,” Law Journal Newsletters, Apr 30 2025.</li>
+    <li>Saishruti Mutneja &amp; Raghav Gurbaxani, “ChatGPT’s Ghibli-Style Images Are Testing Copyright Law,” Law Journal Newsletters, Apr 30 2025.</li>
     <li>Lee Chong Ming, “OpenAI just made it harder to turn your pics into Studio Ghibli-style image”, Business Insider, Mar 27 2025.</li>
-    <li>Kelvin Chan & Matt O’Brien, “Getty Images and Stability AI face off in British copyright trial that will test AI industry”, AP News, Jun 9 2025.</li>
+    <li>Kelvin Chan &amp; Matt O’Brien, “Getty Images and Stability AI face off in British copyright trial that will test AI industry”, AP news, Jun 9 2025.</li>
   </ol>
 
-  <p>Contact: ….</p>
 </body>
 </html>
