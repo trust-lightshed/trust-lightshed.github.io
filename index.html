@@ -1,104 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LightShed Bypasses Leading AI Art Protection Tools</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    .header-band {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .header-band h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    h2 {
-      margin-top: 2rem;
-      font-size: 1.5rem;
-    }
-    p {
-      margin-bottom: 1rem;
-    }
-    ul, ol {
-      margin-left: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    blockquote {
-      margin: 1rem 0;
-      padding: 0.5rem 1rem;
-      background-color: #f9f9f9;
-      border-left: 4px solid #ccc;
-    }
-    a {
-      color: #2c3e50;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <div class="header-band">
-    <h1>LightShed Bypasses Leading AI Art Protection Tools</h1>
-  </div>
-
-  <p>Researchers from Technical University Darmstadt, University of Cambridge and University of Texas at San Antonio have introduced LightShed, a powerful new method capable of bypassing the state-of-the-art image protection tools designed to defend artists’ work against unauthorized AI training. Among the most prominent of these tools are Glaze and NightShade, which have collectively been downloaded over 8.8 million times [1], and have been featured in well-known news outlets such as the NY Times [2], World Economic Forum [3], and NPR [4]. They are popular among digital artists aiming to prevent AI models like Stable Diffusion from replicating their unique styles without consent.</p>
-
-  <p>These tools have been back in the spotlight since March 2025, when OpenAI rolled out a ChatGPT image mode that could instantly produce artwork “in the style of Studio Ghibli,” sparking not only viral memes but also discussions about copyright of images [5,6,7]. Legal analysts noted that Studio Ghibli would have limited options because copyright law protects specific expression, not “style” itself [6], drawing back attention to tools, such as Glaze and NightShade [1]. While OpenAI subsequently announced prompt safeguards to block some user requests to generate images with artistic styles from living artists [8], companies training these models might not always be that cooperative, as ongoing copyright trials such as Getty Images VS Stability AI show [9]. Furthermore, these safeguards are not bullet proof; the problem remains as long as these images can be scraped and added into the training dataset. LightShed makes it clear that state-of-the-art protections such as Glaze and NightShade cannot reliably prevent AI models from training on them.</p>
-
-  <h2>How Glaze and NightShade Work</h2>
-  <p>Both Glaze and NightShade operate by adding subtle, invisible distortions, known as poisoning perturbations, to digital images. These perturbations are designed to confuse AI models during training:</p>
-  <ul>
-    <li><strong>Glaze</strong> takes a passive approach, hindering the model’s ability to extract stylistic features.</li>
-    <li><strong>NightShade</strong> goes further, actively corrupting the learning process by causing the AI to associate an artist’s style with unrelated concepts.</li>
-  </ul>
-
-  <p>While these tools have become crucial to many creators, the newly developed LightShed method reveals that their protections may not be as robust as hoped. LightShed is able to detect, reverse-engineer, and remove these perturbations, effectively stripping away the protections and rendering the images usable again for generative AI model training.</p>
-
-  <h2>LightShed&rsquo;s Three-Step Process</h2>
-  <ol>
-    <li><strong>Detection:</strong> Identifies whether an image has been altered with known poisoning techniques.</li>
-    <li><strong>Reverse Engineering:</strong> Learns the characteristics of the perturbations using publicly available poisoned examples.</li>
-    <li><strong>Removal:</strong> Eliminates the poison to restore the image to its original, unprotected form.</li>
-  </ol>
-
-  <p>In experimental evaluations, LightShed successfully detected NightShade-protected images with 99.98% accuracy and effectively removed the embedded protections from those images.</p>
-
-  <blockquote>
-    “We see this as a chance to co-evolve defenses,” Prof. Ahmad-Reza Sadeghi states. “Our goal is to collaborate with other scientists in this field and support the artistic community in developing tools that can withstand advanced adversaries.”
-  </blockquote>
-
-  <p>This research highlights the urgent need for stronger, more adaptive defenses in the evolving landscape of AI and digital creativity and offers a roadmap toward more resilient, artist-centered protection strategies. The LightShed paper will be presented at the renowned security conference USENIX Security 2025 in Seattle. For the paper see <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/foerster">USENIX Security ’25 presentation</a>.</p>
-
-  <h2>Contact</h2>
-  <p> Hanna Foerster, Department of Computer Science &amp; Technology, University of Cambridge, UK — <a href="mailto:hf390@cam.ac.uk">hf390@cam.ac.uk</a><br>
-  <p> Sasha Behrouzi, System Security Lab, Technical University of Darmstadt, Germany — <a href="mailto:sasha.behrouzi@tu-darmstadt.de">sasha.behrouzi@tu-darmstadt.de</a><br>
-  Prof. Murtuza Jadliwala, Department of Computer Science, University of Texas at San Antonio, US — <a href="mailto:murtuza.jadliwala@utsa.edu">murtuza.jadliwala@utsa.edu</a><br>
-  Prof. Ahmad-Reza Sadeghi, System Security Lab, Technical University of Darmstadt, Germany — <a href="mailto:ahmad.sadeghi@trust.informatik.tu-darmstadt.de">ahmad.sadeghi@trust.informatik.tu-darmstadt.de</a></p>
-
-  <h2>References</h2>
-  <ol>
-    <li>Hessie Jones, “Generative AI is a crisis for copyright law”, Forbes, Apr 3 2025.</li>
-    <li>Chloe Veltman, “New tools help artists fight AI by directly disrupting the systems,” NPR, Nov 3 2023.</li>
-    <li>Victoria Masterson, “What is Nightshade - the new tool allowing artists to ‘poison’ AI models?”, World Economic Forum, Nov 14 2023.</li>
-    <li>Kashmir Hill, “This tool could protect artists from A.I.-generated art that steals their style”. New York Times, Feb 13 2023.</li>
-    <li>Thomas Urbain, “Copyright questions loom as ChatGPT’s Ghibli-style images go viral,” The Japan Times, Mar 28 2025.</li>
-    <li>Jacob Shamsian, “Studio Ghibli has few legal options to stop OpenAI from ripping off its style,” Business Insider, Mar 28 2025.</li>
-    <li>Saishruti Mutneja &amp; Raghav Gurbaxani, “ChatGPT’s Ghibli-Style Images Are Testing Copyright Law,” Law Journal Newsletters, Apr 30 2025.</li>
-    <li>Lee Chong Ming, “OpenAI just made it harder to turn your pics into Studio Ghibli-style image”, Business Insider, Mar 27 2025.</li>
-    <li>Kelvin Chan &amp; Matt O’Brien, “Getty Images and Stability AI face off in British copyright trial that will test AI industry”, AP news, Jun 9 2025.</li>
-  </ol>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LightShed Bypasses Leading AI Art Protection Tools</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-color: #1a2634;
+        --accent-color: #2c9ab7;
+        --text-color: #333;
+        --bg-color: #f5f7fa;
+        --white: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      header {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        color: var(--white);
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+      header h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      main {
+        flex: 1;
+        padding: 2rem 1rem;
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--white);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border-radius: 8px;
+      }
+      section + section {
+        margin-top: 2rem;
+      }
+      h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+      ul, ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      blockquote {
+        margin: 1rem 0;
+        padding: 1rem 1.5rem;
+        background-color: #eef2f5;
+        border-left: 5px solid var(--accent-color);
+        font-style: italic;
+      }
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>LightShed Bypasses Leading AI Art Protection Tools</h1>
+    </header>
+    <main>
+      <section>
+        <p>Researchers from Technical University Darmstadt, University of Cambridge and University of Texas at San Antonio have introduced LightShed, a powerful new method capable of bypassing the state-of-the-art image protection tools designed to defend artists’ work against unauthorized AI training. Among the most prominent of these tools are Glaze and NightShade, which have collectively been downloaded over 8.8 million times <a href="#ref1">[1]</a>, and have been featured in well-known news outlets such as the NY Times <a href="#ref4">[4]</a>, World Economic Forum <a href="#ref3">[3]</a>, and NPR <a href="#ref2">[2]</a>. They are popular among digital artists aiming to prevent AI models like Stable Diffusion from replicating their unique styles without consent.</p>
+        <p>These tools have been back in the spotlight since March 2025, when OpenAI rolled out a ChatGPT image mode that could instantly produce artwork “in the style of Studio Ghibli,” sparking not only viral memes but also discussions about copyright of images <a href="#ref5">[5]</a><a href="#ref6">[6]</a><a href="#ref7">[7]</a>. Legal analysts noted that Studio Ghibli would have limited options because copyright law protects specific expression, not “style” itself <a href="#ref6">[6]</a>, drawing back attention to tools, such as Glaze and NightShade <a href="#ref1">[1]</a>. While OpenAI subsequently announced prompt safeguards to block some user requests to generate images with artistic styles from living artists <a href="#ref8">[8]</a>, companies training these models might not always be that cooperative, as ongoing copyright trials such as Getty Images VS Stability AI show <a href="#ref9">[9]</a>. Furthermore, these safeguards are not bullet proof; the problem remains as long as these images can be scraped and added into the training dataset. LightShed makes it clear that state-of-the-art protections such as Glaze and NightShade cannot reliably prevent AI models from training on them.</p>
+      </section>
+      <section>
+        <h2>How Glaze and NightShade Work</h2>
+        <p>Both Glaze and NightShade operate by adding subtle, invisible distortions, known as poisoning perturbations, to digital images. These perturbations are designed to confuse AI models during training:</p>
+        <ul>
+          <li><strong>Glaze</strong> takes a passive approach, hindering the model’s ability to extract stylistic features.</li>
+          <li><strong>NightShade</strong> goes further, actively corrupting the learning process by causing the AI to associate an artist’s style with unrelated concepts.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>LightShed’s Three-Step Process</h2>
+        <ol>
+          <li><strong>Detection:</strong> Identifies whether an image has been altered with known poisoning techniques.</li>
+          <li><strong>Reverse Engineering:</strong> Learns the characteristics of the perturbations using publicly available poisoned examples.</li>
+          <li><strong>Removal:</strong> Eliminates the poison to restore the image to its original, unprotected form.</li>
+        </ol>
+        <p>In experimental evaluations, LightShed successfully detected NightShade-protected images with 99.98% accuracy and effectively removed the embedded protections from those images.</p>
+      </section>
+      <section>
+        <blockquote>“We see this as a chance to co-evolve defenses,” Prof. Ahmad-Reza Sadeghi states. “Our goal is to collaborate with other scientists in this field and support the artistic community in developing tools that can withstand advanced adversaries.”</blockquote>
+      </section>
+      <section>
+        <p>This research highlights the urgent need for stronger, more adaptive defenses in the evolving landscape of AI and digital creativity and offers a roadmap toward more resilient, artist-centered protection strategies. The LightShed paper will be presented at the renowned security conference USENIX Security 2025 in Seattle. For the paper see <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/foerster">USENIX Security ’25 presentation</a>.</p>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <p>Ms. Hanna Foerster, Department of Computer Science &amp; Technology, University of Cambridge, UK — <a href="mailto:hf390@cam.ac.uk">hf390@cam.ac.uk</a><br>
+        Prof. Murtuza Jadliwala, Department of Computer Science, University of Texas at San Antonio, US — <a href="mailto:murtuza.jadliwala@utsa.edu">murtuza.jadliwala@utsa.edu</a><br>
+        Prof. Ahmad-Reza Sadeghi, System Security Lab, Technical University of Darmstadt, Germany — <a href="mailto:ahmad.sadeghi@trust.informatik.tu-darmstadt.de">ahmad.sadeghi@trust.informatik.tu-darmstadt.de</a></p>
+      </section>
+      <section>
+        <h2>References</h2>
+        <ol>
+          <li id="ref1">Hessie Jones, “Generative AI is a crisis for copyright law”, Forbes, Apr 3 2025.</li>
+          <li id="ref2">Chloe Veltman, “New tools help artists fight AI by directly disrupting the systems,” NPR, Nov 3 2023.</li>
+          <li id="ref3">Victoria Masterson, “What is Nightshade - the new tool allowing artists to ‘poison’ AI models?”, World Economic Forum, Nov 14 2023.</li>
+          <li id="ref4">Kashmir Hill, “This tool could protect artists from A.I.-generated art that steals their style”. New York Times, Feb 13 2023.</li>
+          <li id="ref5">Thomas Urbain, “Copyright questions loom as ChatGPT’s Ghibli-style images go viral,” The Japan Times, Mar 28 2025.</li>
+          <li id="ref6">Jacob Shamsian, “Studio Ghibli has few legal options to stop OpenAI from ripping off its style,” Business Insider, Mar 28 2025.</li>
+          <li id="ref7">Saishruti Mutneja &amp; Raghav Gurbaxani, “ChatGPT’s Ghibli-Style Images Are Testing Copyright Law,” Law Journal Newsletters, Apr 30 2025.</li>
+          <li id="ref8">Lee Chong Ming, “OpenAI just made it harder to turn your pics into Studio Ghibli-style image”, Business Insider, Mar 27 2025.</li>
+          <li id="ref9">Kelvin Chan &amp; Matt O’Brien, “Getty Images and Stability AI face off in British copyright trial that will test AI industry”, AP News, Jun 9 2025.</li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      © 2025 LightShed Research. All rights reserved.
+    </footer>
+  </body>
 </html>
